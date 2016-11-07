@@ -38,25 +38,25 @@
 							<%}%>
 							<div class="input-group">
 								<label for="UserName" class="input-group-addon"><i class= "glyphicon glyphicon-user"></i></label>
-								<input name="user_name" type="text" class="form-control"	 placeholder="Tên đăng nhập" ng-model="username" ng-minlength="6" ng-maxlength="20" ng-pattern="/^[a-zA-Z]+$/" required>
+								<input name="user_name" type="text" class="form-control" placeholder="Tên đăng nhập" ng-model="username" ng-minlength="6" ng-maxlength="20" ng-pattern="/^[a-zA-Z]+$/" required>
 								
 								<i class="fa fa-check text-success"
-								 ng-show="form.username.$dirty && form.username.$valid">
+								 ng-show="form.user_name.$dirty && form.user_name.$valid">
 								</i>
 							</div>
-							<div ng-show="form.username.$dirty && form.username.$invalid"
+							<div ng-show="form.user_name.$dirty && form.user_name.$invalid"
 							 	class="text-danger">
 								<i class="fa fa-times text-danger"></i>
-							 	<span ng-show="form.username.$error.required">
+							 	<span ng-show="form.user_name.$error.required">
 							   		Họ tên không được bỏ trống
 							 	</span>
-							 	<span ng-show="form.username.$error.minlength">
+							 	<span ng-show="form.user_name.$error.minlength">
 							    	Họ tên phải dài hơn 6 kí tự
 							 	</span>
-							 	<span ng-show="form.username.$error.maxlength">
+							 	<span ng-show="form.user_name.$error.maxlength">
 							   		Họ tên phải ngắn hơn 20 kí tự
 							 	</span>
-							 	<span ng-show="form.username.$error.pattern">
+							 	<span ng-show="form.user_name.$error.pattern">
 							   		Họ tên chỉ bao gồm các kí tự chữ cái
 							 	</span>
 							</div>
@@ -66,18 +66,18 @@
 							<div class="input-group">
 								<label for="inputPassword" class="input-group-addon"><i class=" glyphicon glyphicon-lock"></i></label>
 								<input name="user_pass" ng-model="password" type="password" class="form-control" placeholder="Mật khẩu" ng-minlength="6" ng-maxlength="30" required>
-								<i class="fa fa-check text-success" ng-show="form.password.$dirty && form.password.$valid">
+								<i class="fa fa-check text-success" ng-show="form.user_pass.$dirty && form.user_pass.$valid">
 								</i>
 							</div>
-							<div ng-show="form.password.$dirty && form.password.$invalid" class="text-danger">
+							<div ng-show="form.user_pass.$dirty && form.user_pass.$invalid" class="text-danger">
 								<i class="fa fa-times text-danger"></i>
-								<span ng-show="form.password.$error.required">
+								<span ng-show="form.user_pass.$error.required">
 								Mật khẩu không được bỏ trống
 								</span>
-								<span ng-show="form.password.$error.minlength">
+								<span ng-show="form.user_pass.$error.minlength">
 								Mật khẩu phải dài hơn 6 kí tự
 								</span>
-								<span ng-show="form.password.$error.maxlength">
+								<span ng-show="form.user_pass.$error.maxlength">
 								Mật khẩu phải ngắn hơn 30 kí tự
 								</span>
 							</div>
