@@ -41,7 +41,7 @@ public class UsersServlet extends HttpServlet {
 			users = userDao.login(request.getParameter("user_name"), request.getParameter("user_pass"));
 			if(users !=null)
 			{
-				session.setAttribute("user_thongtin", users);
+				session.setAttribute("user", users);
 				url ="/index.jsp";
 			}else{
 				session.setAttribute("loi", "Nhap sai id hoac pass");

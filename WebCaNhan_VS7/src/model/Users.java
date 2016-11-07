@@ -1,17 +1,38 @@
 package model;
 
+import java.sql.Date;
+
 public class Users {
 	private String username;
 	private String password;
+	private String hovaten;
+	private Date ngaysinh;
+	private String diachi;
+	private String quequan;
+	private String sdt;
+	private String email;
+	private String trangthai;
+	
 	public Users() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Users(String username, String password) {
+	
+	public Users(String username, String password, String hovaten, Date ngaysinh, String diachi, String quequan,
+			String sdt, String email, String trangthai) {
 		super();
 		this.username = username;
 		this.password = password;
+		this.hovaten = hovaten;
+		this.ngaysinh = ngaysinh;
+		this.diachi = diachi;
+		this.quequan = quequan;
+		this.sdt = sdt;
+		this.email = email;
+		this.trangthai = trangthai;
 	}
+	
+	
 	public String getUsername() {
 		return username;
 	}
@@ -24,5 +45,48 @@ public class Users {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getHovaten() {
+		return hovaten;
+	}
+	public void setHovaten(String hovaten) {
+		this.hovaten = hovaten;
+	}
+	public Date getNgaysinh() {
+		return ngaysinh;
+	}
+	public void setNgaysinh(Date ngaysinh) {
+		this.ngaysinh = ngaysinh;
+	}
+	public String getDiachi() {
+		return diachi;
+	}
+	public void setDiachi(String diachi) {
+		this.diachi = diachi;
+	}
+	public String getQuequan() {
+		return quequan;
+	}
+	public void setQuequan(String quequan) {
+		this.quequan = quequan;
+	}
+	public String getSdt() {
+		return sdt;
+	}
+	public void setSdt(String sdt) {
+		this.sdt = sdt;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getTrangthai() {
+		return trangthai;
+	}
+	public void setTrangthai(String trangthai) {
+		this.trangthai = trangthai;
+	}
+	
 	
 }

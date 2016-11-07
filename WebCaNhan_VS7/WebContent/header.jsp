@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="dao.UsersDao" %>
+<%@ page import="model.Users" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 	<head>
@@ -12,6 +14,13 @@
 	</head>
 	
 	<body>
+		<%
+			UsersDao usersDao=new UsersDao();
+			Users users = null;
+			if(session.getAttribute("user")!= null){
+				users = (Users) session.getAttribute("user");
+			}
+		%>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-5 col-sm-5 col-xs-5">
@@ -36,7 +45,9 @@
 		            </li>
 		        </ul>
 		        <ul class="nav navbar-nav navbar-right">
-		            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+		        	<% if(users!=null){ %>
+		            <li><a href="#"><%=users.getHovaten() %></a>
+		            <%} %>
 		            </li>
 		            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>
 		            </li>
