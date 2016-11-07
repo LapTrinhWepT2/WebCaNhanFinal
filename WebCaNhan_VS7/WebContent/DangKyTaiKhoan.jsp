@@ -13,7 +13,27 @@
     <script src="javascript/jquery-3.1.1.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="javascript/myjs.js"></script>
-
+	
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" type="text/javascript"></script>
+	<script type="text/javascript">
+	      $(document).ready(function () {
+	           var x_timer;
+	           $("#dk_username").keyup(function (e) {
+	                clearTimeout(x_timer);
+	                var user_name = $(this).val();
+	                x_timer = setTimeout(function () {
+	                    check_username_ajax(user_name);
+	                }, 1000);
+	                });
+	 
+	           function check_username_ajax(username) {
+	                $("#user-result").html('<img src="image/ajax-loader.gif" />');
+	                $.post('CheckUserServlet', {'dk_username': username}, function (data) {
+	                    $("#user-result").html(data);
+	                 });
+	           }
+	       });
+	</script>
 </head>
 <body>
     <jsp:include page="header.jsp"></jsp:include>	
@@ -28,30 +48,31 @@
 
             <div class="col-lg-5 col-md-5 col-sm-10 col-xs-12">
                 <h2>ĐĂNG KÝ TÀI KHOẢN</h2>
-                <form>
+                <form action = "UsersServlet" method="post">
                     <div class="form-group">
-                        <label for="username">Tên Đăng Nhập</label>
-                        <input id="username" type="text" class="form-control" placeholder="Tên đăng nhập">
+                        <label for="dk_username">Tên Đăng Nhập</label>
+                        <input name="dk_username" id="dk_username" type="text" class="form-control" placeholder="Tên đăng nhập">
+                        <span id="user-result"></span>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="pass">Nhập Mật khẩu</label>
-                        <input name="pass" type="text" class="form-control" placeholder="Tên đăng nhập">
+                        <label class="control-label" for="dk_pass">Nhập Mật khẩu</label>
+                        <input name="dk_pass" id="dk_pass" type="pass" class="form-control" placeholder="Password"> <span id="user-result"></span>
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="name">Họ Tên Đầy Đủ</label>
-                        <input name="name" type="text" class="form-control" placeholder="Họ tên đầy đủ">
+                        <input name="FullName" type="text" class="form-control" placeholder="Họ tên đầy đủ">
                     </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                 <label class="control-label" for="name">Ngày</label>
-                                <input name="Ngay" type="text" class="form-control" placeholder="Ngày">
+                                <input name="NgaySinh" type="text" class="form-control" placeholder="Ngày">
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
                                 <label class="control-label" for="name">Tháng</label><span class="select2-chosen"></span>
                                 <abbr class="select2-search-choice-close"></abbr>
                                 <span class="select2-arrow"><b></b></span>
-                                <select id="searchvol" class="newselect-sm elect2-offscreen form-control" tabindex="-1">
+                                <select name="Thang" id="searchvol" class="newselect-sm elect2-offscreen form-control" tabindex="-1">
                                     <option>Tháng 1</option>
                                     <option>Tháng 2</option>
                                     <option>Tháng 3</option>
@@ -78,20 +99,19 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="name">Quê Quán</label>
-                        <input name="quequan" type="text" class="form-control" placeholder="Quê quán">
+                        <input name="QueQuan" type="text" class="form-control" placeholder="Quê quán">
                     </div>
                     <div class="form-group has-feedback">
                         <label class="control-label" for="name">Số điện thoại</label>
-                        <input name="SDT" type="text" class="form-control" placeholder="Số điện thoại">
+                        <input name="SoDT" type="text" class="form-control" placeholder="Số điện thoại">
                     </div>
                     <div class="form-group has-feedback">
                         <label class="control-label" for="name">Email liên hệ</label>
                         <input name="Email" type="text" class="form-control" placeholder="Email">
                     </div>
-                </form>
-                <a href="">
-                    <button class="btn btn-primary pull-right" ng-disabled="!form.$dirty || (form.$dirty && form.$invalid)">Đăng Ký</button>
-                </a>
+                     <input type ="hidden" value = "insert" name = "command">
+               		 <input type ="submit" value = "Đăng ký" class="btn btn-primary pull-right">
+                </form>              
             </div>
         </div>
     </div> <!-- Noi dung -->
