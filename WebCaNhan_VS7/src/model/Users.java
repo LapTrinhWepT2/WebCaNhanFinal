@@ -7,32 +7,36 @@ public class Users {
 	private String password;
 	private String hovaten;
 	private Date ngaysinh;
+	private String gioitinh;
 	private String diachi;
 	private String quequan;
-	private String sdt;
+	private String sodt;
 	private String email;
 	private String trangthai;
-	
 	public Users() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	public Users(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
 	
-	public Users(String username, String password, String hovaten, Date ngaysinh, String diachi, String quequan,
-			String sdt, String email, String trangthai) {
+	public Users(String username, String password, String hovaten, Date ngaysinh, String gioitinh, String diachi,
+			String quequan, String sodt, String email, String trangthai) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.hovaten = hovaten;
 		this.ngaysinh = ngaysinh;
+		this.gioitinh = gioitinh;
 		this.diachi = diachi;
 		this.quequan = quequan;
-		this.sdt = sdt;
+		this.sodt = sodt;
 		this.email = email;
 		this.trangthai = trangthai;
 	}
-	
-	
 	public String getUsername() {
 		return username;
 	}
@@ -57,6 +61,12 @@ public class Users {
 	public void setNgaysinh(Date ngaysinh) {
 		this.ngaysinh = ngaysinh;
 	}
+	public String getGioitinh() {
+		return gioitinh;
+	}
+	public void setGioitinh(String gioitinh) {
+		this.gioitinh = gioitinh;
+	}
 	public String getDiachi() {
 		return diachi;
 	}
@@ -69,11 +79,11 @@ public class Users {
 	public void setQuequan(String quequan) {
 		this.quequan = quequan;
 	}
-	public String getSdt() {
-		return sdt;
+	public String getSodt() {
+		return sodt;
 	}
-	public void setSdt(String sdt) {
-		this.sdt = sdt;
+	public void setSodt(String sodt) {
+		this.sodt = sodt;
 	}
 	public String getEmail() {
 		return email;
@@ -87,6 +97,5 @@ public class Users {
 	public void setTrangthai(String trangthai) {
 		this.trangthai = trangthai;
 	}
-	
 	
 }

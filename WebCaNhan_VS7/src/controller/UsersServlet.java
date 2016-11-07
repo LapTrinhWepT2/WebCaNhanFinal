@@ -37,6 +37,22 @@ public class UsersServlet extends HttpServlet {
 		Users users = new Users();
 		HttpSession session = request.getSession();
 		switch(command){
+		case "insert":
+			users.setUsername(request.getParameter("dk_username"));
+			users.setPassword(request.getParameter("dk_pass"));
+			users.setHovaten(request.getParameter("FullName"));
+			//users.setNgaysinh(request.getParameter("NgaySinh"));
+			//users.setGioitinh(request.getParameter("GioiTinh"));
+			users.setDiachi(request.getParameter("DiaChi"));
+			users.setQuequan(request.getParameter("QueQuan"));
+			users.setSodt(request.getParameter("SoDT"));
+			users.setEmail(request.getParameter("Email"));
+			
+			userDao.insertUser(users);
+			HttpSession session2 = request.getSession();
+			session2.setAttribute("user", users);
+			url = "/index.jsp";
+			break;
 		case "login":
 			users = userDao.login(request.getParameter("user_name"), request.getParameter("user_pass"));
 			if(users !=null)
